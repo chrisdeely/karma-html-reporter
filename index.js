@@ -1,7 +1,7 @@
 var os = require('os');
 var path = require('path');
 var fs = require('fs');
-var _ = require('lodash');
+var _ = require('lodash'); //map, clone, first, some, filter
 var mu = require('mu2');
 
 
@@ -113,7 +113,7 @@ var HtmlReporter = function(baseReporterDecorator, basePath, config, emitter, lo
 
 	this.specSuccess = this.specSkipped = this.specFailure = function(browser, result) {
 		var suite = getOrCreateSuite(browser, result);
-        	result.log = _.map(result.log, formatError);
+        	result.log = result.log.map(formatError);
 		suite.specs.push(result);
 	};
 
